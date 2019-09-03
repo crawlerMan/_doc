@@ -1,0 +1,43 @@
+open zookeeper configer ( properties)
+
+
+add:
+
+tickTime=2000
+initLimit=2 
+syncLimit=2
+
+
+server.1=ip:port
+server.2=ip:port
+server.3=ip:port
+
+change client port! ( if need)
+
+--
+change dataDir
+
+saved and copy files
+
+
+make file "myid" for any nodes, 1,2,3...
+
+on kafka config,
+
+change borker id ( if need)
+port
+and log dirctory
+
+add all zookeeper nodes in file:
+zookeeper.connect
+
+
+--
+
+kafka-topic.sh --create --zookeeper ip:port,ip:port --replication-factor 3 partition 1 --topic [name]
+
+kafka-console-producer.sh --broker-list ip:port,ip:port --topic [name]
+
+
+---
+https://www.agiratech.com/kafka-zookeeper-multi-node-cluster-setup/
